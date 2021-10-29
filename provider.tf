@@ -3,16 +3,20 @@ variable "server" {
    default = "ru"
 }
 
-variable "it_type" {}
-variable "ami_id" {}
+variable "it_type" {
+default = "t2.nano"
+}
+
+variable "ami_id" {
+default = "ami-02e136e904f3da870" 
+}
 
 resource "aws_instance" "myservers" {
    ami = var.ami_id
    instance_type = var.it_type
 
-
    tags = {
-      Name = "${var.server}-28oct"
+      Name = "${var.server}-29oct"
       env = "test"
    }
 }
