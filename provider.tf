@@ -23,7 +23,13 @@ variable "ami_id_ubuntu" {
    default = "ami-0fde50fcbcd46f2f7"
 }
 
-variable "environment" { default = "prod" }
+variable "environment" { 
+   type = string
+   default = "prod" 
+}
+
+variable "it_type" {}
+variable "ami_id" {}
 
 variable "pubkey" {
    type = string
@@ -31,8 +37,8 @@ variable "pubkey" {
 }
 
 resource "aws_instance" "myservers" {
-   ami = "${ var.environment == "prod" ? var.ami_id_redhat : var.ami_id_ubuntu }"
-   instance_type = "${ var.environment == "prod" ? var.it_redhat : var.it_ubuntu }"
+   ami = var.ami_id
+   instance_type = var.it_type
    key_name = aws_key_pair.mykeypair.key_name
 
 
