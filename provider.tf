@@ -1,7 +1,3 @@
-provider "aws" {
-   region = "us-east-1"
-}
-
 variable "server" {
    type = string
    default = "ru"
@@ -27,7 +23,7 @@ variable "ami_id_ubuntu" {
    default = "ami-0fde50fcbcd46f2f7"
 }
 
-variable "environment" {}
+variable "environment" { default = "prod" }
 
 variable "pubkey" {
    type = string
