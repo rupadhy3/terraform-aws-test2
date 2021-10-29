@@ -25,5 +25,5 @@ output "Public_IP" {
 }
 
 output "Private_IP" {
-  value = value = aws_instance.myservers.private_ip 
+  value = aws_instance.myservers.private_ip 
 }
